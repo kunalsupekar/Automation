@@ -4,12 +4,14 @@ After=network.target
 
 [Service]
 Type=oneshot
+ExecStartPre=/bin/sleep 30
 ExecStart=/usr/local/bin/deploy_app.sh
 RemainAfterExit=yes
 User=ubuntu
 Group=ubuntu
-TimeoutStartSec=300
-
+TimeoutStartSec=600
+StandardOutput=append:/var/log/deployment.log
+StandardError=append:/var/log/deployment.log
 
 [Install]
 WantedBy=multi-user.target

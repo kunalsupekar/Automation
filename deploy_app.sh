@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-set -x
+#set -x
 
 # This script is designed to be run on an Amazon Linux instance.
 # It installs necessary packages, configures Tomcat and Nginx, mounts an NFS share,

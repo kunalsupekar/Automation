@@ -45,6 +45,7 @@ fi
 # Install Tomcat
 if [[ ! -f "$TOMCAT_DIR/bin/startup.sh" ]]; then
     echo "⬇ Downloading Tomcat $TOMCAT_VERSION..."
+    cd /tmp || { echo "Failed to change directory to /tmp"; exit 1; }
     curl -L -O "https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz" || { echo "Failed to download Tomcat"; exit 1; }
     sudo mkdir -p "$TOMCAT_DIR"
     sudo tar -xzf apache-tomcat-${TOMCAT_VERSION}.tar.gz -C "$TOMCAT_DIR" --strip-components=1
